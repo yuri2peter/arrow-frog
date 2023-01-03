@@ -1,5 +1,5 @@
 {
-  "name": "@yuri2/arrow-forg",
+  "name": "@yuri2/arrow-frog",
   "version": "0.9.3",
   "description": "A react state management with only 80 lines of core code.",
   "main": "dist/index.js",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuri2peter/arrow-forg"
+    "url": "git+https://github.com/yuri2peter/arrow-frog"
   },
   "keywords": [
     "react",
@@ -25,9 +25,9 @@
   "author": "yuri2",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yuri2peter/arrow-forg/issues"
+    "url": "https://github.com/yuri2peter/arrow-frog/issues"
   },
-  "homepage": "https://github.com/yuri2peter/arrow-forg#readme",
+  "homepage": "https://github.com/yuri2peter/arrow-frog#readme",
   "dependencies": {
     "immer": "^9.0.17"
   },
