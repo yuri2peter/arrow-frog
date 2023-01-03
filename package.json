@@ -4,6 +4,10 @@
   "description": "A react state management with only 80 lines of core code.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build:types": "tsc",
     "build": "rm -rf dist && npm run build:types && rollup --config",
