@@ -1,6 +1,6 @@
 {
   "name": "@yuri2/arrow-forg",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "A react state management with only 80 lines of core code.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
