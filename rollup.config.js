@@ -11,8 +11,8 @@ export default {
     // umd: 兼容amd/cjs/iife的通用打包格式，适合浏览器
     // esm：ES6 Module
     // cjs nodejs标准
-    format: "cjs",
-    name: "mylibs", // umd必须声明一个名字，相当于全局变量
+    format: "esm",
+    name: "@yuri2/arrow-forg",
     sourcemap: true,
   },
   plugins: [

@@ -1,65 +1,155 @@
-# mylibs
+# @yuri2/arrow-forg
 
-这是开发 npm 包的脚手架，使用 ts 作为开发语言。
-mylibs 指包名，实际使用请替换为正确的包名。
-以下内容以 mylibs 为例。
+![Logo](./doc/logo.webp)
 
-## 安装
+`@yuri2/arrow-forg` is a react state management with only 80 lines of core code.
 
-`npm i mylibs`
+## Features
 
-## 使用
+- Small size
+- No boilerplate code
+- Unified global state
+- Easy-to-use API
+- Typescript supported
+
+## Install
+
+`npm i @yuri2/arrow-forg`
+
+> `react(16.8+)` is needed in your project.
+
+## Quick Start
+
+```tsx
+import React from "react";
+import { createStore } from "@yuri2/arrow-forg";
+
+// First create a store.
+const { changeStore, useStore, StoreProvider } = createStore({
+  a: 1,
+  b: "hello",
+});
+
+// Then bind your components, and that's it!
+const MyApp = () => (
+  <StoreProvider>
+    <MyPage />
+  </StoreProvider>
+);
+
+const MyPage = () => {
+  const { a } = useStore();
+  React.useEffect(() => {
+    setTimeout(() => {
+      changeStore((s) => {
+        s.a++;
+      });
+    }, 1000);
+  }, []);
+  return <div>{a}</div>;
+};
+```
+
+> Make sure `changeStore` is the only way to change the value of your store. It uses [immerjs/immer](https://github.com/immerjs/immer) inside.
+
+## Advanced Usage
+
+### 1. Use Anywhere!
 
 ```ts
-import { srctest as sleep } from "../src/index";
+// store.ts
+export const { getStore, changeStore, useStore, useSelector, StoreProvider } =
+  createStore(defaultStore);
+```
 
-async function main() {
-  console.log(1);
-  await sleep(1000);
-  console.log(2);
+```ts
+// amount.ts
+import { getStore, changeStore } from "store.ts";
+
+export function addAmount() {
+  changeStore((s) => {
+    s.amount++;
+  });
 }
 
-main();
+export async function addAmountAsync() {
+  changeStore((s) => {
+    s.amount++;
+  });
+}
+
+export function logAmount() {
+  const { amount } = getStore();
+  console.log(amount);
+}
 ```
 
-## 开发
+### 2.Assemble Your Store
 
-### 源码编写
+```ts
+// store/index.ts
+import createStore from "@yuri2/arrow-forg";
+import { todoSlice } from "./todo";
+import { userSlice } from "./user";
 
-- `src` 目录下编写源码
-- `test` 目录下编写测试
-- `npm run test` 执行测试文件 `test/index.ts`
+export const { getStore, useSelector, changeStore, StoreProvider, useStore } =
+  createStore({
+    todo: todoSlice,
+    user: userSlice,
+  });
 
-### 打包编译
-
+export type Store = ReturnType<typeof getStore>;
 ```
-按需求，修改rollup.config.js文件
-npm run build 生成index.ts文件和.d.ts声明文件
+
+```ts
+// store/todo.ts
+import { changeStore } from "./index.ts";
+
+interface TodoSlice {
+  list: Todo[];
+}
+
+export const todoSlice: TodoSlice = { list: [] };
+export function addTodo(todo: Todo) {
+  changeStore((s) => s.list.push(todo));
+}
 ```
 
-### 发布前测试
+```ts
+// store/user.ts
+import { changeStore, Store } from "./index.ts";
 
-1. 全局测试：把包链接到全局环境
-   ` npm link`
+interface UserSlice {
+  logged: boolean;
+}
 
-2. 本地项目测试：把包链接到项目本地环境
-   `cd 本地项目根目录`
-   `npm link 包名`
+export const userSlice: UserSlice = { logged: false };
+export const selectUserLogged = (s: Store) => s.logged;
+export function login() {
+  changeStore((s) => (s.logged = true));
+}
+```
 
-3. 取消本地项目测试：把包从本地环境取消
-   `cd 本地项目根目录`
-   `npm unlink 包名`
+### 3.Use Selectors
 
-4. 取消全局测试：把包从全局环境中取消
-   `npm unlink`
+```ts
+// components/List.tsx
+import React from "react";
+import { useSelector } from "../store";
+import { selectUserLogged } from "../store/user";
 
-### npm 发布
+const List: React.FC<{}> = () => {
+  const logged = useSelector(selectUserLogged);
+  return <div>{logged ? "true" : "false"}</div>;
+};
 
-第一次发布：
+export default List;
+```
 
-- 修改版本号
-- 提交 github
-  `npm publish --access public`
+> [reselect](https://www.npmjs.com/package/reselect) is recommanded.
 
-更新版本：
-`npm run release`
+## Why Arrow Forg
+
+These creatures are small but powerful.
+
+> Aren't they cute?

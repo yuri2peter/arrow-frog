@@ -1,18 +1,18 @@
 {
-  "name": "npm-package-template",
-  "version": "0.1.0",
-  "description": "npm打包脚手架",
+  "name": "@yuri2/arrow-forg",
+  "version": "0.9.0",
+  "description": "A react state management with only 80 lines of core code.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build:types": "tsc",
     "build": "rm -rf dist && npm run build:types && rollup --config",
-    "test": "ts-node test/index.ts",
+    "test": "ts-node test/index.tsx",
     "release": "release-it"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuri2peter/npm-package-template"
+    "url": "git+https://github.com/yuri2peter/arrow-forg"
   },
   "keywords": [
     "toolkit",
@@ -22,14 +22,19 @@
   "author": "yuri2",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yuri2peter/npm-package-template/issues"
+    "url": "https://github.com/yuri2peter/arrow-forg/issues"
   },
-  "homepage": "https://github.com/yuri2peter/npm-package-template#readme",
+  "homepage": "https://github.com/yuri2peter/arrow-forg#readme",
+  "dependencies": {
+    "immer": "^9.0.17"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/react": "^18.0.26",
+    "react": "^18.2.0",
     "release-it": "^15.5.0",
     "rollup": "^2.70.2",
     "rollup-plugin-commonjs": "^10.1.0",

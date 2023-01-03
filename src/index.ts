@@ -1,3 +1,3 @@
-import srctest from "./srctest";
+import createStore from "./createStore";
 
-export { srctest };
+export { createStore };
