@@ -12,7 +12,7 @@ export default {
     // esm：ES6 Module
     // cjs nodejs标准
     format: "esm",
-    name: "@yuri2/arrow-forg",
+    name: "@yuri2/arrow-frog",
     sourcemap: true,
   },
   plugins: [

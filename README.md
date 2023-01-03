@@ -1,8 +1,8 @@
-# @yuri2/arrow-forg
+# @yuri2/arrow-frog
 
 ![Logo](./doc/logo.webp)
 
-`@yuri2/arrow-forg` is a react state management with only 80 lines of core code.
+`@yuri2/arrow-frog` is a react state management with only 80 lines of core code.
 
 ## Features
 
@@ -14,7 +14,7 @@
 
 ## Install
 
-`npm i @yuri2/arrow-forg`
+`npm i @yuri2/arrow-frog`
 
 > `react(16.8+)` is needed in your project.
 
@@ -22,7 +22,7 @@
 
 ```tsx
 import React from "react";
-import { createStore } from "@yuri2/arrow-forg";
+import { createStore } from "@yuri2/arrow-frog";
 
 // First create a store.
 const { changeStore, useStore, StoreProvider } = createStore({
@@ -88,7 +88,7 @@ export function logAmount() {
 
 ```ts
 // store/index.ts
-import createStore from "@yuri2/arrow-forg";
+import createStore from "@yuri2/arrow-frog";
 import { todoSlice } from "./todo";
 import { userSlice } from "./user";
 
@@ -148,7 +148,7 @@ export default List;
 
 > [reselect](https://www.npmjs.com/package/reselect) is recommanded.
 
-## Why Arrow Forg
+## Why Arrow Frog
 
 These creatures are small but powerful.
 
