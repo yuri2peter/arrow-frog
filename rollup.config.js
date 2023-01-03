@@ -22,4 +22,5 @@ export default {
     typescript(), // 解析TypeScript
     babel({ babelHelpers: "bundled" }), // babel配置,编译es6
   ],
+  external: ["react"],
 };
