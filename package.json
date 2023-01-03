@@ -19,9 +19,8 @@
     "url": "git+https://github.com/yuri2peter/arrow-forg"
   },
   "keywords": [
-    "toolkit",
-    "rollup",
-    "typescript"
+    "react",
+    "state"
   ],
   "author": "yuri2",
   "license": "MIT",
@@ -38,7 +37,6 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/react": "^18.0.26",
-    "react": "^18.2.0",
     "release-it": "^15.5.0",
     "rollup": "^2.70.2",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -46,5 +44,8 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.3.1",
     "typescript": "^4.6.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
   }
 }
