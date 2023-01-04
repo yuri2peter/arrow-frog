@@ -88,7 +88,7 @@ export function logAmount() {
 
 ```ts
 // store/index.ts
-import createStore from "@yuri2/arrow-frog";
+import { createStore } from "@yuri2/arrow-frog";
 import { todoSlice } from "./todo";
 import { userSlice } from "./user";
 
